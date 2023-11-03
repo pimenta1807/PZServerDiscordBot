@@ -2,50 +2,50 @@
 
 public static class ServerPath
 {
-    public static string BasePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Zomboid\\";
+    public static string BasePath = "/home/conteiner/Zomboid/";
 
     public static string ServerLogsPath()
     {
     #if DEBUG
-        return ".\\Logs\\";
+        return "./Logs/";
     #else
-        string path = BasePath + "Logs\\";
+        string path = BasePath + "Logs/";
         return path;
     #endif
     }
 
     public static string ServerSettingsPath()
     {
-        string path = BasePath + "Server\\";
+        string path = BasePath + "Server/";
         return path;
     }
     public static string ServerBaseSavesPath()
     {
-        string path = BasePath + "Saves\\";
+        string path = BasePath + "Saves/";
         return path;
     }
 
     public static string ServerSavesPath()
     {
-        string path = BasePath + "Saves\\Multiplayer\\" + ServerUtility.GetServerConfigIniFileName(true) + "\\";
+        string path = BasePath + "Saves/Multiplayer/" + ServerUtility.GetServerConfigIniFileName(true) + "/";
         return path;
     }
 
     public static string ServerSavesPlayerPath()
     {
-        string path = BasePath + "Saves\\Multiplayer\\" + ServerUtility.GetServerConfigIniFileName(true) + "_player\\";
+        string path = BasePath + "Saves/Multiplayer/" + ServerUtility.GetServerConfigIniFileName(true) + "_player/";
         return path;
     }
 
     public static string ServerDatabasePath()
     {
-        string path = BasePath + "db\\";
+        string path = BasePath + "db/";
         return path;
     }
 
     public static string ServerLuaPath()
     {
-        string path = BasePath + "Lua\\";
+        string path = BasePath + "Lua/";
         return path;
     }
 

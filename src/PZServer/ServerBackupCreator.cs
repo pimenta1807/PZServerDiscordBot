@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 public static class ServerBackupCreator
 {
     public static bool IsRunning { get; private set; } = false;
-    private static readonly string backupPath = "./server_backup";
+    private static readonly string backupPath = "/home/conteiner/DiscordBot/server_backup";
 
     private static readonly Dictionary<string, string> backupNamePathList = new Dictionary<string, string> 
     {
@@ -39,8 +39,8 @@ public static class ServerBackupCreator
         int i=0;
         foreach(KeyValuePair<string, string> namePathPair in backupNamePathList)
         {
-            if(File.Exists(backupPath+"/"+namePathPair.Key))
-                File.Delete(backupPath+"/"+namePathPair.Key);
+            if(File.Exists(Path.Combine(backupPath, namePathPair.Key)))
+                File.Delete(Path.Combine(backupPath, namePathPair.Key));
 
             if(!Directory.Exists(namePathPair.Value))
             {
@@ -48,7 +48,7 @@ public static class ServerBackupCreator
                 continue;
             }
 
-            ZipFile.CreateFromDirectory(namePathPair.Value, backupPath+"/"+namePathPair.Key);
+            ZipFile.CreateFromDirectory(namePathPair.Value, Path.Combine(backupPath, namePathPair.Key));
 
             if(logChannel != null)
                 await logChannel.SendMessageAsync(Localization.Get("disc_cmd_backup_server_item_done").KeyFormat(("folder_name", namePathPair.Value), ("remaining_folder_count", backupNamePathList.Count - ++i)));

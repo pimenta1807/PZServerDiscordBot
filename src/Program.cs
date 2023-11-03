@@ -64,7 +64,7 @@ public static class Application
         }
 
     #if !DEBUG
-        string serverFile = "./server.bat";
+    string serverFile = "/home/container/Project Zomboid Dedicated Server/start-server.sh";
 
         if(!File.Exists(serverFile))
         {
@@ -87,10 +87,10 @@ public static class Application
                     {
                         if(arg.Contains("user.home"))
                         {
-                            ServerPath.BasePath = arg.Split('=').Last() + "\\";
+                            ServerPath.BasePath = arg.Split('=').Last() + "/";
 
-                            if(Directory.Exists(ServerPath.BasePath + "Zomboid\\"))
-                                ServerPath.BasePath += "Zomboid\\";
+                            if(Directory.Exists(ServerPath.BasePath + "Zomboid/"))
+                                ServerPath.BasePath += "Zomboid/";
                         }
                     }
                 }

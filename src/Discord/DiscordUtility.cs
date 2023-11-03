@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 public static class DiscordUtility
 {
-    public const string DiscordBotTokenFile = "./bot_token.txt";
+    public const string DiscordBotTokenFile = @".\bot_token.txt";
 
     static string discordBotToken = null;
     static Dictionary<string, List<KeyValuePair<string, string>>> commandList = new Dictionary<string, List<KeyValuePair<string, string>>>();

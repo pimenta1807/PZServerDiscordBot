@@ -5,7 +5,7 @@ using System.Threading;
 
 public static class ServerUtility
 {
-    private const string  serverFile    = ".\\server.bat";
+    private const string  serverFile    = "/home/container/Project Zomboid Dedicated Server/start-server.sh";
     public static Process ServerProcess = null;
 
     public static bool CanStartServer()
@@ -86,7 +86,8 @@ public static class ServerUtility
                 ProcessStartInfo startInfo = new ProcessStartInfo(serverFile)
                 {
                     RedirectStandardInput = true,
-                    UseShellExecute = false
+                    UseShellExecute = false,
+                    Arguments = "-cachedir=/home/container/Zomboid -adminusername " + Application.BotSettings.AdminUser + " -adminpassword " + Application.BotSettings.AdminPassword + " -port " + Application.BotSettings.ServerPort + " -udpport " + (Application.BotSettings.ServerPort + 1)
                 };
 
                 ServerProcess = new Process

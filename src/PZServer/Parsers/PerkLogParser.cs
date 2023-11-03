@@ -8,7 +8,7 @@ namespace ServerLogParsers
 {
     public static class PerkLog
     {
-        public const  string TempLogFile = ".\\perkLog.temp";
+        public const  string TempLogFile = "./perkLog.temp";
         public static Dictionary<string, UserPerkData> PerkCache = null;
         public static DateTime? LastCacheTime = null;
 
